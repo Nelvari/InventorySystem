@@ -81,6 +81,7 @@ class _DetailPageState extends State<DetailPage> {
                   : null,
             ),
           ),
+          const SizedBox(height: 20),
           Text(
             'Name : $_name',
             style: const TextStyle(
@@ -88,7 +89,6 @@ class _DetailPageState extends State<DetailPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
           Text(
             'Price : $_price',
             style: const TextStyle(
@@ -96,7 +96,6 @@ class _DetailPageState extends State<DetailPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 16),
           Text(
             'Stock : $_stock',
             style: const TextStyle(
@@ -104,7 +103,6 @@ class _DetailPageState extends State<DetailPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 16),
           Text(
             'Kategori : $_kategories',
             style: const TextStyle(
@@ -112,7 +110,6 @@ class _DetailPageState extends State<DetailPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 16),
           Text(
             'Description : $_description',
             style: const TextStyle(
@@ -122,7 +119,6 @@ class _DetailPageState extends State<DetailPage> {
           ),
 
           const SizedBox(height: 16),
-
           const Text(
             'Daftar Riwayat',
             style: TextStyle(
