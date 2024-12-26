@@ -42,7 +42,7 @@ class DbHelper {
     return _database!;
   }
 
-  Future<List<TransaksiModel>> getTransaksi(int id) async {
+  Future<List<Transaksi>> getTransaksi(int id) async {
     final db = await getDB;
     try {
       final List<Map<String, dynamic>> results = await db.query(
@@ -51,13 +51,13 @@ class DbHelper {
         whereArgs: [id],
         orderBy: 'id DESC',
       );
-      return results.map((res) => TransaksiModel.fromMap(res)).toList();
+      return results.map((res) => Transaksi.fromMap(res)).toList();
     } catch (e) {
       throw Exception('Gagal mendapatkan data: $e');
     }
   }
 
-  Future<int> insertTransaksi(TransaksiModel transaksi) async {
+  Future<int> insertTransaksi(Transaksi transaksi) async {
     final db = await getDB;
     try {
       // Memulai transaksi database
@@ -106,7 +106,7 @@ class DbHelper {
     }
   }
 
-  Future<int> insert(ProductModel product) async {
+  Future<int> insert(Product product) async {
     final db = await getDB;
     try {
       return await db.insert('product', product.toMap());
@@ -115,20 +115,20 @@ class DbHelper {
     }
   }
 
-  Future<List<ProductModel>> getProducts() async {
+  Future<List<Product>> getProducts() async {
     final db = await getDB;
     try {
       final List<Map<String, dynamic>> results = await db.query(
         'product',
         orderBy: 'id DESC',
       );
-      return results.map((res) => ProductModel.fromMap(res)).toList();
+      return results.map((res) => Product.fromMap(res)).toList();
     } catch (e) {
       throw Exception('Gagal mendapatkan data: $e');
     }
   }
 
-  Future<int> update(ProductModel product) async {
+  Future<int> update(Product product) async {
     final db = await getDB;
     try {
       return await db.update(
@@ -142,7 +142,7 @@ class DbHelper {
     }
   }
 
-  Future<int> delete(ProductModel product) async {
+  Future<int> delete(Product product) async {
     final db = await getDB;
     try {
       return await db.delete(

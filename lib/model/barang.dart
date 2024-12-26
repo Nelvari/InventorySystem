@@ -1,50 +1,60 @@
-import 'dart:convert';
-import 'dart:typed_data';
 
-class ProductModel {
-  final int? id;
+class Product {
+  final int id;
   final String name;
   final int price;
   final int stock;
   final String kategories;
   final String description;
-  final Uint8List? image;
+  final String image;
+  final int? idSupplier;
 
-  ProductModel(
-      {this.id,
+  Product(
+      {required this.id,
       required this.name,
       required this.price,
       required this.stock,
       required this.kategories,
       required this.description,
-      this.image});
+      required this.image,
+      required this.idSupplier});
+
+  factory Product.fromMap(Map<String, dynamic> map) {
+    return Product(
+        id: map['id'] as int,
+        name: map['name'] as String,
+        price: map['price'] as int,
+        stock: map['stock'] as int,
+        kategories: map['kategories'] as String,
+        description: map['description'] as String,
+        image: map['image'] as String,
+        idSupplier: map['idSupplier'] as int
+      );
+  }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'id': id,
       'name': name,
       'price': price,
       'stock': stock,
       'kategories': kategories,
       'description': description,
       'image': image,
+      'idSupplier': idSupplier
     };
   }
 
-  factory ProductModel.fromMap(Map<String, dynamic> map) {
-    return ProductModel(
-      id: map['id'] as int?,
-      name: map['name'] as String,
-      price: map['price'] as int,
-      stock: map['stock'] as int,
-      kategories: map['kategories'] as String,
-      description: map['description'] as String,
-      image: map['image'] as Uint8List?,
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      name: json['name'],
+      description: json['description'],
+      kategories: json['kategories'],
+      price: json['price'],
+      stock: json['stock'],
+      image: json['image'],
+      idSupplier: json['idSupplier'],
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory ProductModel.fromJson(String source) =>
-      ProductModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
