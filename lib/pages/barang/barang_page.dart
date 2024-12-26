@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inventory_system/config/product_database.dart';
 import 'package:inventory_system/pages/barang/detail_page.dart';
 import 'package:inventory_system/pages/barang/add_page.dart';
+import 'package:inventory_system/pages/barang/update_page.dart';
 
 
 class BarangPage extends StatefulWidget {
@@ -74,12 +75,8 @@ class _BarangPageState extends State<BarangPage> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Container(
+                        SizedBox(
                           height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -101,6 +98,29 @@ class _BarangPageState extends State<BarangPage> {
                                   ),
                                   child: const Icon(
                                     Icons.info,
+                                    size: 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return UpdatePage(
+                                      product: product,
+                                    );
+                                  }));
+                                },
+                                child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.blue,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Icon(
+                                    Icons.edit,
                                     size: 18,
                                     color: Colors.white,
                                   ),

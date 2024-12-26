@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      title: 'Inventaris',
+      title: 'Inventory',
       initialRoute: '/',
       routes: {
         '/': (context) => const AuthGet(),

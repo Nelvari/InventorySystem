@@ -15,21 +15,4 @@ class ProductDatabase {
   ).map(
       (data) => data.map((productMap) => Product.fromMap(productMap)).toList());
 
-  // Update
-  Future updateProduct(Product oldProduct, String name, int price, int stock,
-      String kategories, String description) async {
-    await database.update({
-      'name': name,
-      'price': price,
-      'stock': stock,
-      'kategories': kategories,
-      'description': description,
-    }).eq('id', oldProduct.id);
-  }
-
-  // Delete
-  Future deleteProduct(Product product) async {
-    await database.delete().eq('id', product.id);
-  }
-  
 }

@@ -150,13 +150,15 @@ class _SupplierPageState extends State<SupplierPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.edit),
+                        color: Colors.blue,
+                        icon: const Icon(Icons.edit),
                         onPressed: () =>
                             _updateSupplier(
                                 supplier), // Navigate to update page
                       ),
                       IconButton(
-                        icon: Icon(Icons.delete),
+                        color: Colors.red,
+                        icon: const Icon(Icons.delete),
                         onPressed: () async {
                           final confirmDelete = await showDialog<bool>(
                             context: context,

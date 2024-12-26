@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventory_system/auth/auth_service.dart';
+import 'package:inventory_system/components/styles.dart';
 import 'package:inventory_system/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -43,17 +44,24 @@ class _LoginPageState extends State<LoginPage> {
         children: [
 
           // email
-          TextField(
-            controller: _emailController,
-            decoration: const InputDecoration(labelText: "Email"),
+          InputLayout(
+            'Email', 
+            TextFormField(
+              controller: _emailController,
+              decoration: customInputDecoration("Email"),
+            ),
           ),
 
           const SizedBox(height: 12,),
 
           // password
-          TextField(
-            controller: _passwordController,
-            decoration: const InputDecoration(labelText: "Password"),
+          InputLayout(
+            'Password',
+            TextFormField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: customInputDecoration("Password"),
+            ),
           ),
 
           const SizedBox(height: 12,),

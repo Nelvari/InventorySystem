@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventory_system/auth/auth_service.dart';
+import 'package:inventory_system/components/styles.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -56,25 +57,36 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
 
           // email
-          TextField(
-            controller: _emailController,
-            decoration: const InputDecoration(labelText: "Email"),
+          InputLayout(
+            'Email', 
+            TextFormField(
+              controller: _emailController,
+              decoration: customInputDecoration("Email"),
+            ),
           ),
 
-          const SizedBox(height: 12,),
+          const SizedBox(height: 6,),
 
           // password
-          TextField(
-            controller: _passwordController,
-            decoration: const InputDecoration(labelText: "Password"),
+          InputLayout(
+            'Password',
+            TextFormField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: customInputDecoration("Password"),
+            ),
           ),
 
-          const SizedBox(height: 12,),
+          const SizedBox(height: 6,),
 
           // confirm password
-          TextField(
-            controller: _confirmPasswordController,
-            decoration: const InputDecoration(labelText: "Confirm Password"),
+          InputLayout(
+            'Confirm Password',
+            TextFormField(
+              controller: _confirmPasswordController,
+              obscureText: true,
+              decoration: customInputDecoration("Confirm Password"),
+            ),
           ),
 
           const SizedBox(height: 12,),
