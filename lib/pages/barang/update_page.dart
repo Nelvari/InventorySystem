@@ -118,7 +118,7 @@ class _UpdatePageState extends State<UpdatePage> {
           'idSupplier': _selectedSupplierId,
         }).eq('id', widget.product.id);
       } else {
-        await Supabase.instance.client.from('products').update({
+        await Supabase.instance.client.from('product').update({
           'name': nama,
           'description': deskripsi,
           'kategories': kategori,

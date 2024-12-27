@@ -57,7 +57,7 @@ class _DashboardPageState extends State<DashboardPage> {
         padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FutureBuilder<int>(
@@ -71,7 +71,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       final totalProduct = snapshot.data ?? 0;
                       return DashboardCard(
                         title: 'Barang',
-                        icon: Icons.inventory_sharp,
+                        icon: Icons.inventory,
                         total: totalProduct,
                         onTap: () {
                           Navigator.pushNamed(context, '/barangList');
@@ -90,7 +90,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       final totalSupplier = snapshot.data ?? 0;
                       return DashboardCard(
                         title: 'Supplier',
-                        icon: Icons.store,
+                        icon: Icons.supervisor_account,
                         total: totalSupplier,
                         onTap: () {
                           Navigator.pushNamed(context, '/supplierList');
